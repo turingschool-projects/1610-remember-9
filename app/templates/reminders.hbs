@@ -1,0 +1,8 @@
+{{outlet}}
+<h1>REMINDERS</h1>
+
+<ul>
+{{#each model as |reminder|}}
+<li class='spec-reminder-item'>  {{reminder-item reminder=reminder}} </li>
+{{/each}}
+</ul>
