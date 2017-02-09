@@ -1,0 +1,7 @@
+{{#each model as |reminder|}}
+{{reminder-item reminder=reminder}}
+{{#link-to 'reminders.reminder'}}
+{{reminder.title}}
+{{/link-to}}
+{{/each}}
+{{outlet}}
