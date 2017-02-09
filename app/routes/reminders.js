@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import { Factory, faker } from 'ember-cli-mirage';
 
 export default Ember.Route.extend({
   model() {
