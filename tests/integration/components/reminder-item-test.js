@@ -1,25 +1,20 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
+
 moduleForComponent('reminder-item', 'Integration | Component | reminder item', {
-  integration: true
+  integration: true,
+
+  beforeEach: function () {
+    this.set('reminder',
+      { title: 'appt',  date: 'Feb 3',  notes: 'be late'},
+    )
+  }
 });
 
-test('it renders', function(assert) {
+test('it should render current reminder', function(assert) {
 
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
-
-  this.render(hbs`{{reminder-item}}`);
-
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#reminder-item}}
-      template block text
-    {{/reminder-item}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  this.render(hbs`{{reminder-item reminder=reminder}}`);
+  assert.equal(this.$('h2').text().trim(), 'appt');
+  assert.equal(this.$('p').text().trim(), 'Feb 3be late')
 });
