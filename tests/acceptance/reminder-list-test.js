@@ -25,7 +25,7 @@ test('clicking on an individual item', function(assert) {
   click('.spec-reminder-title:first');
 
   andThen(function() {
-    assert.equal(currentURL(), '/reminders/reminder/1');
+    assert.equal(currentURL(), '/reminders/1');
     assert.equal(Ember.$('.spec-reminder-item:first').find('h2').text().trim(), Ember.$('.spec-reminder-title').first().text().trim());
   });
 });
