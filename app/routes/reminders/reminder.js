@@ -5,6 +5,3 @@ export default Ember.Route.extend({
     return this.get('store').findRecord('reminder', params.reminder_id);
   }
 });
-
-
-//Object.data.id

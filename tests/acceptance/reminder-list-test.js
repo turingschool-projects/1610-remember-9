@@ -22,7 +22,7 @@ test('clicking on an individual item', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
-  click('.spec-reminder-item:first');
+  click('.spec-reminder-title:first');
 
   andThen(function() {
     assert.equal(currentURL(), '/reminders/reminder/1');

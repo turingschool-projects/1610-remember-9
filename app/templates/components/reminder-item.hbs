@@ -1,9 +1,9 @@
-{{#link-to 'reminders.reminder' reminder.id}}
-<article class='spec-reminder-item'>
-  <h2 class='spec-reminder-title'>
-    {{reminder.title}}
-  </h2>
-<p class='spec-reminder-date'>{{reminder.date}}</p>
-<p class='spec-reminder-notes'>{{reminder.notes}}</p>
-</article>
-{{/link-to}}
+  <article class='spec-reminder-item'>
+    {{#link-to 'reminders.reminder' reminder.id}}
+    <h2 class='spec-reminder-title'>
+      {{reminder.title}}
+    </h2>
+    {{/link-to}}
+  <p class='spec-reminder-date'>{{reminder.date}}</p>
+  <p class='spec-reminder-notes'>{{reminder.notes}}</p>
+  </article>
