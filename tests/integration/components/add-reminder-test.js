@@ -33,5 +33,4 @@ skip('it should trigger addReminder action on submit', function(assert) {
 //  this.$('.textarea-notes').change();
 
   this.$('.add-reminder-submit').click()
-
 });
