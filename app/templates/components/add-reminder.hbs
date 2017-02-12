@@ -1,1 +1,16 @@
-<button {{action 'addReminder'}}>Submit</button>
+<form class="add-reminder-form" {{action 'addReminder' on="submit"}}>
+  <label>
+    Title:
+    {{input class="input-title" value=title}}
+  </label>
+  <label>
+    Date
+    {{input class="input-date" value=date}}
+  </label>
+  <label>
+    Notes
+    {{textarea class="textarea-notes" value=notes}}
+  </label>
+<button class="add-reminder-submit">Submit</button>
+<!-- added submit to button class -->
+</form>
