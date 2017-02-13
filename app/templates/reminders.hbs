@@ -1,7 +1,10 @@
 <h1>REMINDERS</h1>
-
-{{#each model as |reminder|}}
-  {{reminder-item reminder=reminder}}
-{{/each}}
+{{#if model}}
+  {{#each model as |reminder|}}
+    {{reminder-item reminder=reminder}}
+  {{/each}}
+  {{else}}
+    <p>You don't have any reminders yet!</p>
+{{/if}}
 
 {{outlet}}
