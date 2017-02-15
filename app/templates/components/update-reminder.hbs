@@ -11,5 +11,7 @@
     Notes
     {{textarea class="textarea-notes" value=reminder.notes}}
   </label>
-<button class="update-reminder-submit">Submit</button>
+  {{#link-to 'reminders.reminder' reminder.id}}
+    <button class="update-reminder-submit">Submit</button>
+  {{/link-to}}
 </form>
