@@ -11,4 +11,9 @@
       Edit Reminder
     </button>
   {{/link-to}}
+  {{#link-to 'reminders'}}
+    <button class='spec-reminder-delete-link' {{action 'deleteReminder'}}>
+      Delete Reminder
+    </button>
+  {{/link-to}}
 </article>
