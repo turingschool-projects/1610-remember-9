@@ -1,15 +1,15 @@
 <form class="update-reminder-form" {{action 'updateReminder' on="submit"}}>
   <label>
     Title:
-    {{input class="input-title" value=model.title}}
+    {{input class="input-title" value=reminder.title}}
   </label>
   <label>
     Date
-    {{input class="input-date" value=model.date}}
+    {{input class="input-date" value=reminder.date}}
   </label>
   <label>
     Notes
-    {{textarea class="textarea-notes" value=model.notes}}
+    {{textarea class="textarea-notes" value=reminder.notes}}
   </label>
 <button class="update-reminder-submit">Submit</button>
 </form>
