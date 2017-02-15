@@ -5,21 +5,15 @@ moduleForComponent('update-reminder', 'Integration | Component | update reminder
   integration: true
 });
 
-test('it renders', function(assert) {
-
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
+test('it renders the update form correctly', function(assert) {
 
   this.render(hbs`{{update-reminder}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#update-reminder}}
-      template block text
-    {{/update-reminder}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.update-reminder-form').length, 1);
+  assert.equal(this.$('label').first().text().trim(), 'Title:');
+  assert.equal(this.$('label:eq(1)').text().trim(), 'Date');
+  assert.equal(this.$('label:eq(2)').text().trim(), 'Notes');
+  assert.equal(this.$('input').length, 2);
+  assert.equal(this.$('textarea').length, 1);
+  assert.equal(this.$('.update-reminder-submit').length, 1);
 });
