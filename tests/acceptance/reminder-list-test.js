@@ -18,7 +18,7 @@ test('viewing the homepage', function(assert) {
   });
 });
 
-test('clicking on an individual item', function(assert) {
+test('clicking on an individual item will take you to a dynamic route that displays that reminder', function(assert) {
   server.createList('reminder', 5);
 
   visit('/');
@@ -37,5 +37,40 @@ test('when there are no reminders, a message that notifies you of that will disp
     assert.equal(currentURL(), '/reminders');
     assert.equal(Ember.$('.no-reminder-msg').length, 1);
     assert.equal(Ember.$('.no-reminder-msg').text().trim(), "You don't have any reminders yet!");
+  });
+});
+
+test('each reminder can be deleted', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(Ember.$('.spec-reminder-item').length, 5);
+  });
+
+  click('.spec-reminder-delete-link:first');
+
+  andThen(function() {
+    assert.equal(Ember.$('.spec-reminder-item').length, 4);
+  });
+});
+
+test('when a reminder is deleted on its route, the reminder will be deleted and the user will be redirected to the reminders page', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/');
+  click('.spec-reminder-title:first');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders/1');
+  });
+
+  click('.spec-reminder-delete-link:first');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(Ember.$('.spec-reminder-item').length, 4);
   });
 });

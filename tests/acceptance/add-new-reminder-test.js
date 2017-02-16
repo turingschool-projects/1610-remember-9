@@ -14,8 +14,8 @@ test('allow a user to add a new reminder', function(assert) {
     fillIn('.textarea-notes', 'on sale though');
 
     click('.add-reminder-submit');
-    andThen (()=> assert.equal(find('.spec-reminder-title').text().trim(), 'get new kicks'))
-    andThen (()=> assert.equal(find('.spec-reminder-date').text().trim(), '3-3-2010'))
-    andThen (()=> assert.equal(find('.spec-reminder-notes').text().trim(), 'on sale though'))
+    andThen (()=> assert.equal(find('.spec-reminder-title').text().trim(), 'get new kicks'));
+    andThen (()=> assert.equal(find('.spec-reminder-date').text().trim(), '3-3-2010'));
+    andThen (()=> assert.equal(find('.spec-reminder-notes').text().trim(), 'on sale though'));
   });
 });

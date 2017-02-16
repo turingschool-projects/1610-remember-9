@@ -10,9 +10,10 @@ moduleForComponent('reminder-item', 'Integration | Component | reminder item', {
   }
 });
 
-test('it should render current reminder', function(assert) {
+test('it should render current reminder correctly', function(assert) {
 
   this.render(hbs`{{reminder-item reminder=reminder}}`);
   assert.equal(this.$('h2').text().trim(), 'appt');
   assert.equal(this.$('p').text().trim(), 'Feb 3be late');
+  assert.equal(this.$('button').length, 2);
 });

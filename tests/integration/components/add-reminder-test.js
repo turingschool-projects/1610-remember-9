@@ -1,4 +1,4 @@
-import { moduleForComponent, test, skip } from 'ember-qunit';
+import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
 moduleForComponent('add-reminder', 'Integration | Component | add reminder', {
@@ -14,5 +14,5 @@ test('it renders the add reminder form correctly', function(assert) {
   assert.equal(this.$('label:eq(2)').text().trim(), 'Notes');
   assert.equal(this.$('input').length, 2);
   assert.equal(this.$('textarea').length, 1);
-  assert.equal(this.$('button').length, 1);
+  assert.equal(this.$('button').length, 2);
 });
