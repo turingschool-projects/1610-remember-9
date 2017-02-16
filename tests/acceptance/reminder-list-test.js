@@ -55,5 +55,22 @@ test('each reminder can be deleted', function(assert) {
   andThen(function() {
     assert.equal(Ember.$('.spec-reminder-item').length, 4);
   });
+});
 
+test('when a reminder is deleted on its route, the reminder will be deleted and the user will be redirected to the reminders page', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/');
+  click('.spec-reminder-title:first');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders/1');
+  });
+
+  click('.spec-reminder-delete-link:first');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/reminders');
+    assert.equal(Ember.$('.spec-reminder-item').length, 4);
+  });
 });
