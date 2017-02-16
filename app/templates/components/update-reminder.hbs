@@ -17,9 +17,8 @@
       Submit
     </button>
   {{/link-to}}
-  {{#if model.hasDirtyAttributes}}
-    <button class='revert-reminder-btn'
-      {{action 'revertReminder' model on='click'}}>
+  {{#if reminder.hasDirtyAttributes}}
+    <button class='revert-reminder-btn' {{action 'revertReminder' on='click'}}>
       Revert
     </button>
   {{/if}}
