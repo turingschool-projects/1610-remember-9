@@ -1,17 +1,26 @@
-<form class="update-reminder-form" {{action 'updateReminder' on="submit"}}>
+<form class='update-reminder-form'>
   <label>
     Title:
-    {{input class="input-title" value=reminder.title}}
+    {{input class='input-title' value=reminder.title}}
   </label>
   <label>
     Date
-    {{input class="input-date" value=reminder.date}}
+    {{input class='input-date' value=reminder.date}}
   </label>
   <label>
     Notes
-    {{textarea class="textarea-notes" value=reminder.notes}}
+    {{textarea class='textarea-notes' value=reminder.notes}}
   </label>
   {{#link-to 'reminders.reminder' reminder.id}}
-    <button class="update-reminder-submit">Submit</button>
+    <button class='update-reminder-submit'
+      {{action 'updateReminder'}}>
+      Submit
+    </button>
   {{/link-to}}
+  {{#if model.hasDirtyAttributes}}
+    <button class='revert-reminder-btn'
+      {{action 'revertReminder' model on='click'}}>
+      Revert
+    </button>
+  {{/if}}
 </form>
