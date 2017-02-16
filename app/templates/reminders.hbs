@@ -5,6 +5,9 @@
   {{/each}}
   {{else}}
     <p class='no-reminder-msg'>You don't have any reminders yet!</p>
+    {{#link-to 'reminders.new'}}
+      <button class='add-reminder-link-btn'>Add Reminder</button>
+    {{/link-to}}
 {{/if}}
 
 {{outlet}}

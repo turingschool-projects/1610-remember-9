@@ -8,8 +8,8 @@ export default Ember.Component.extend({
     deleteReminder() {
       this.get('store').findRecord('reminder', this.reminder.id, { backgroundReload: false })
       .then(reminder => {
-        reminder.destroyRecord()
-      })
+        reminder.destroyRecord();
+      });
     }
   }
 });

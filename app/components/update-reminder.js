@@ -6,8 +6,8 @@ export default Ember.Component.extend({
   actions: {
     updateReminder() {
       this.get('store').findRecord('reminder', this.reminder.id).then(reminder => {
-        reminder.save()
-      })
+        reminder.save();
+      });
     }
   }
 });
