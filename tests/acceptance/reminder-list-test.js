@@ -81,8 +81,8 @@ test('edit reminder and revert to original text by clicking revert button', func
   click('.add-reminder-link-btn');
 
   fillIn('.input-title', 'probably a title');
-  fillIn('input-date', '4/28');
-  fillIn('textarea-notes', 'probably some notes');
+  fillIn('.input-date', '4/28');
+  fillIn('.textarea-notes', 'probably some notes');
 
   click('.add-reminder-submit');
   click('.spec-reminder-title');
@@ -95,11 +95,18 @@ test('edit reminder and revert to original text by clicking revert button', func
   fillIn('.input-title', 'ALLIGATOR');
   fillIn('.input-date', 'TODAY');
   fillIn('.textarea-notes', 'WOWOWOWOWOW');
+
+  andThen(function() {
+    assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'ALLIGATOR');
+    assert.equal(Ember.$('.spec-reminder-date').text().trim(), 'TODAY');
+    assert.equal(Ember.$('.spec-reminder-notes').text().trim(), 'WOWOWOWOWOW');
+  });
+
   click('.revert-reminder-btn');
 
   andThen(function() {
     assert.equal(Ember.$('.spec-reminder-title').text().trim(), 'probably a title');
     assert.equal(Ember.$('.spec-reminder-date').text().trim(), '4/28');
     assert.equal(Ember.$('.spec-reminder-notes').text().trim(), 'probably some notes');
-  })
+  });
 });
